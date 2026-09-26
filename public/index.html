@@ -1,0 +1,460 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Конструктор персонажей</title>
+  <style>
+    * { box-sizing: border-box; }
+    body {
+      font-family: "Segoe UI", Arial, sans-serif;
+      background: #1e1f26;
+      color: #e8e8ea;
+      margin: 0;
+      padding: 24px;
+    }
+    .container { max-width: 1200px; margin: 0 auto; }
+    h1 { font-size: 22px; margin: 0 0 20px; color: #fff; }
+    h2 { font-size: 15px; margin: 0 0 10px; color: #aeb6d4; text-transform: uppercase; letter-spacing: 1px; }
+    .card {
+      background: #2a2c37;
+      border: 1px solid #3a3d4d;
+      border-radius: 10px;
+      padding: 18px;
+      margin-bottom: 18px;
+    }
+    .card-header { display: flex; align-items: center; justify-content: space-between; margin-bottom: 12px; }
+    .header-btns { display: flex; gap: 8px; }
+    .card-header h2 { margin: 0; }
+    .random-btn { margin-top: 0; padding: 6px 14px; font-size: 13px; }
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+      gap: 14px;
+    }
+    .field { align-self: start; }
+    .group-label {
+      display: block;
+      font-size: 13px;
+      color: #aeb6d4;
+      margin-bottom: 6px;
+    }
+    .g-btn, .c-btn, .l-btn, .x-btn {
+      background: #3a3d4d;
+      color: #aeb6d4;
+      border: 1px solid #4a4e63;
+      border-radius: 4px;
+      font-size: 11px;
+      font-weight: bold;
+      padding: 1px 6px;
+      margin-left: 6px;
+      cursor: pointer;
+      vertical-align: middle;
+    }
+    .g-btn:hover { background: #5b64f0; color: #fff; border-color: #5b64f0; }
+    .c-btn:hover { background: #3fbf6f; color: #fff; border-color: #3fbf6f; }
+    .c-btn.active { background: #3fbf6f; color: #fff; border-color: #3fbf6f; }
+    .l-btn:hover { background: #e0a63f; color: #fff; border-color: #e0a63f; }
+    .x-btn:hover { background: #e05252; color: #fff; border-color: #e05252; }
+    .l-btn.locked { background: #e0a63f; color: #fff; border-color: #e0a63f; }
+    .custom-input {
+      width: 100%;
+      margin-top: 6px;
+      background: #1e1f26;
+      color: #e8e8ea;
+      border: 1px solid #4a4e63;
+      border-radius: 6px;
+      padding: 6px 8px;
+      font-size: 13px;
+      font-family: inherit;
+    }
+    .custom-input:focus { outline: none; border-color: #7c86ff; }
+    .checkbox-list { display: flex; flex-direction: column; gap: 6px; }
+    .checkbox-item {
+      display: flex;
+      align-items: center;
+      gap: 7px;
+      font-size: 14px;
+      cursor: pointer;
+    }
+    .checkbox-item input {
+      width: 15px;
+      height: 15px;
+      accent-color: #5b64f0;
+      cursor: pointer;
+    }
+    textarea {
+      width: 100%;
+      background: #1e1f26;
+      color: #e8e8ea;
+      border: 1px solid #4a4e63;
+      border-radius: 6px;
+      padding: 8px 10px;
+      font-size: 14px;
+      font-family: inherit;
+    }
+    textarea { resize: vertical; min-height: 80px; }
+    textarea:focus { outline: none; border-color: #7c86ff; }
+    .output-block textarea { min-height: 160px; font-family: Consolas, monospace; background: #15161c; }
+    .btn-row { display: flex; gap: 8px; }
+    .clear-btn { background: #4a4e63; }
+    .clear-btn:hover { background: #e05252; }
+    .btn {
+      background: #5b64f0;
+      color: #fff;
+      border: none;
+      border-radius: 6px;
+      padding: 9px 18px;
+      font-size: 14px;
+      cursor: pointer;
+      margin-top: 10px;
+    }
+    .btn:hover { background: #6d75ff; }
+    .btn:active { background: #4a52d4; }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h1>Конструктор персонажей</h1>
+
+    <div class="card">
+      <div class="card-header">
+        <h2>Параметры</h2>
+        <div class="header-btns">
+          <button class="btn random-btn" id="randomBtn">Random</button>
+          <button class="btn random-btn" id="unlockBtn">Unlock</button>
+          <button class="btn" id="exportBtn">Экспорт</button>
+          <button class="btn" id="importBtn">Импорт</button>
+          <button class="btn clear-btn" id="clearBtn">Очистить</button>
+        </div>
+      </div>
+      <div class="grid" id="selectors"></div>
+    </div>
+
+    <div class="card">
+      <h2>Общие данные персонажа</h2>
+      <textarea id="charData" placeholder="Например: персонаж — магистр ордена, обладает силой псионика..."></textarea>
+    </div>
+
+    <div class="card">
+      <h2>Общие данные промта</h2>
+      <textarea id="promptData" placeholder="Например: стиль — аниме, фотореализм; фон — тёмный; освещение — драматичное..."></textarea>
+    </div>
+
+    <div class="card output-block">
+      <h2>Итоговый промт</h2>
+      <textarea id="output" readonly></textarea>
+      <div class="btn-row">
+        <button class="btn" id="copyBtn">Копировать</button>
+        <input type="file" id="importFile" accept=".json,application/json" hidden>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    let positions = [];
+
+    const STORAGE_KEY = 'charConstructorState';
+
+    function getSaved() {
+      try {
+        return JSON.parse(localStorage.getItem(STORAGE_KEY)) || {};
+      } catch (e) {
+        return {};
+      }
+    }
+
+    function buildState() {
+      const state = { checks: {}, custom: {}, locked: {} };
+      for (const pos of positions) {
+        state.checks[pos.id] = Array.from(
+          document.querySelectorAll('input[type="checkbox"][data-id="' + pos.id + '"]:checked')
+        ).map(cb => cb.value);
+        const custom = document.querySelector('.custom-input[data-id="' + pos.id + '"]');
+        if (custom) {
+          state.custom[pos.id] = { visible: custom.style.display !== 'none', value: custom.value };
+        }
+        const field = document.querySelector('.field[data-id="' + pos.id + '"]');
+        if (field) state.locked[pos.id] = field.dataset.locked === 'true';
+      }
+      state.charData = document.getElementById('charData').value;
+      state.promptData = document.getElementById('promptData').value;
+      return state;
+    }
+
+    function saveState() {
+      localStorage.setItem(STORAGE_KEY, JSON.stringify(buildState()));
+    }
+
+    function applyState(state) {
+      for (const pos of positions) {
+        const field = document.querySelector('.field[data-id="' + pos.id + '"]');
+        document.querySelectorAll('input[type="checkbox"][data-id="' + pos.id + '"]').forEach(cb => {
+          cb.checked = (state.checks && state.checks[pos.id] || []).includes(cb.value);
+        });
+        const custom = document.querySelector('.custom-input[data-id="' + pos.id + '"]');
+        const savedCustom = state.custom && state.custom[pos.id];
+        let customVisible = false;
+        if (custom) {
+          if (savedCustom) {
+            customVisible = !!savedCustom.visible;
+            custom.style.display = customVisible ? 'block' : 'none';
+            custom.value = savedCustom.value || '';
+          } else {
+            custom.style.display = 'none';
+            custom.value = '';
+          }
+        }
+        const cBtn = field && field.querySelector('.c-btn');
+        if (cBtn) cBtn.classList.toggle('active', customVisible);
+        const locked = !!(state.locked && state.locked[pos.id]);
+        if (field) field.dataset.locked = locked ? 'true' : 'false';
+        const lBtn = field && field.querySelector('.l-btn');
+        if (lBtn) lBtn.classList.toggle('locked', locked);
+      }
+      document.getElementById('charData').value = state.charData || '';
+      document.getElementById('promptData').value = state.promptData || '';
+      buildPrompt();
+    }
+
+    async function loadPositions() {
+      const res = await fetch('/api/positions');
+      positions = await res.json();
+      const saved = getSaved();
+      document.getElementById('charData').value = saved.charData || '';
+      document.getElementById('promptData').value = saved.promptData || '';
+      renderSelectors(saved);
+      buildPrompt();
+    }
+
+    function renderSelectors(saved) {
+      saved = saved || {};
+      const container = document.getElementById('selectors');
+      container.innerHTML = '';
+      for (const pos of positions) {
+        const field = document.createElement('div');
+        field.className = 'field';
+        field.dataset.id = pos.id;
+        field.dataset.locked = 'false';
+
+        const head = document.createElement('div');
+        head.className = 'group-label';
+
+        const nameSpan = document.createElement('span');
+        nameSpan.textContent = pos.label;
+
+        const gBtn = document.createElement('button');
+        gBtn.type = 'button';
+        gBtn.className = 'g-btn';
+        gBtn.textContent = 'G';
+        gBtn.title = 'Случайное значение';
+        gBtn.addEventListener('click', () => {
+          const boxes = Array.from(list.querySelectorAll('input[type="checkbox"]'));
+          boxes.forEach(cb => (cb.checked = false));
+          if (boxes.length) boxes[Math.floor(Math.random() * boxes.length)].checked = true;
+          buildPrompt();
+        });
+
+        const cBtn = document.createElement('button');
+        cBtn.type = 'button';
+        cBtn.className = 'c-btn';
+        cBtn.textContent = 'C';
+        cBtn.title = 'Своё значение';
+        cBtn.addEventListener('click', () => {
+          const hidden = customInput.style.display === 'none';
+          customInput.style.display = hidden ? 'block' : 'none';
+          cBtn.classList.toggle('active', hidden);
+          if (!hidden) customInput.value = '';
+          buildPrompt();
+        });
+
+        const lBtn = document.createElement('button');
+        lBtn.type = 'button';
+        lBtn.className = 'l-btn';
+        lBtn.textContent = 'L';
+        lBtn.title = 'Lock (не менять при Random)';
+        lBtn.addEventListener('click', () => {
+          const locked = field.dataset.locked === 'true';
+          field.dataset.locked = locked ? 'false' : 'true';
+          lBtn.classList.toggle('locked', !locked);
+          saveState();
+        });
+        if (saved.locked && saved.locked[pos.id]) {
+          field.dataset.locked = 'true';
+          lBtn.classList.add('locked');
+        }
+
+        const xBtn = document.createElement('button');
+        xBtn.type = 'button';
+        xBtn.className = 'x-btn';
+        xBtn.textContent = 'X';
+        xBtn.title = 'Сбросить';
+        xBtn.addEventListener('click', () => {
+          list.querySelectorAll('input[type="checkbox"]').forEach(cb => (cb.checked = false));
+          buildPrompt();
+        });
+
+        head.appendChild(nameSpan);
+        head.appendChild(gBtn);
+        head.appendChild(cBtn);
+        head.appendChild(lBtn);
+        head.appendChild(xBtn);
+
+        const list = document.createElement('div');
+        list.className = 'checkbox-list';
+
+        for (const [ru, en] of Object.entries(pos.options)) {
+          const item = document.createElement('label');
+          item.className = 'checkbox-item';
+
+          const checkbox = document.createElement('input');
+          checkbox.type = 'checkbox';
+          checkbox.value = ru;
+          checkbox.dataset.en = en;
+          checkbox.dataset.id = pos.id;
+          checkbox.addEventListener('change', buildPrompt);
+          checkbox.checked = (saved.checks && saved.checks[pos.id] || []).includes(ru);
+
+          item.appendChild(checkbox);
+          item.appendChild(document.createTextNode(ru));
+          list.appendChild(item);
+        }
+
+        const customInput = document.createElement('input');
+        customInput.type = 'text';
+        customInput.className = 'custom-input';
+        customInput.placeholder = 'Своё значение (англ)';
+        customInput.dataset.id = pos.id;
+        customInput.style.display = 'none';
+        customInput.addEventListener('input', buildPrompt);
+        const savedCustom = saved.custom && saved.custom[pos.id];
+        if (savedCustom) {
+          customInput.style.display = savedCustom.visible ? 'block' : 'none';
+          customInput.value = savedCustom.value || '';
+        }
+        cBtn.classList.toggle('active', !!(savedCustom && savedCustom.visible));
+
+        field.appendChild(head);
+        field.appendChild(list);
+        field.appendChild(customInput);
+        container.appendChild(field);
+      }
+    }
+
+    function buildPrompt() {
+      let out = '';
+      let pendingRank = 0;
+      for (const pos of positions) {
+        const checked = Array.from(
+          document.querySelectorAll('input[type="checkbox"][data-id="' + pos.id + '"]:checked')
+        );
+        const custom = document.querySelector('.custom-input[data-id="' + pos.id + '"]');
+        const vals = checked.map(cb => cb.dataset.en);
+        if (custom && custom.value.trim()) vals.push(custom.value.trim());
+        const ownRank = pos.newParagraph ? 2 : pos.newSentence ? 1 : 0;
+        if (!vals.length) {
+          if (ownRank > pendingRank) pendingRank = ownRank;
+          continue;
+        }
+        const rank = Math.max(pendingRank, ownRank);
+        const sep = rank === 2 ? '.\n\n' : rank === 1 ? '. ' : ', ';
+        const chunk = vals.join(' ') + (pos.promt ? ' ' + pos.promt : '');
+        out += (out ? sep : '') + (!out || rank >= 1 ? chunk.charAt(0).toUpperCase() + chunk.slice(1) : chunk);
+        pendingRank = 0;
+      }
+      if (out) out += '.';
+
+      const charData = document.getElementById('charData').value.trim();
+      const promptData = document.getElementById('promptData').value.trim();
+
+      let text = out;
+      if (charData) text += ' ' + charData;
+      if (promptData) text += (text ? '\n\n' : '') + '\n' + promptData;
+
+      document.getElementById('output').value = text;
+      saveState();
+    }
+
+    document.getElementById('randomBtn').addEventListener('click', () => {
+      for (const pos of positions) {
+        const field = document.querySelector('.field[data-id="' + pos.id + '"]');
+        if (field && field.dataset.locked === 'true') continue;
+        const boxes = Array.from(
+          document.querySelectorAll('input[type="checkbox"][data-id="' + pos.id + '"]')
+        );
+        boxes.forEach(cb => (cb.checked = false));
+        if (boxes.length) boxes[Math.floor(Math.random() * boxes.length)].checked = true;
+      }
+      buildPrompt();
+    });
+
+    document.getElementById('unlockBtn').addEventListener('click', () => {
+      document.querySelectorAll('.field[data-locked="true"]').forEach(field => {
+        field.dataset.locked = 'false';
+        const lBtn = field.querySelector('.l-btn');
+        if (lBtn) lBtn.classList.remove('locked');
+      });
+      saveState();
+    });
+
+    document.getElementById('exportBtn').addEventListener('click', () => {
+      const blob = new Blob([JSON.stringify(buildState(), null, 2)], { type: 'application/json' });
+      const url = URL.createObjectURL(blob);
+      const a = document.createElement('a');
+      a.href = url;
+      a.download = 'character-base.json';
+      a.click();
+      URL.revokeObjectURL(url);
+    });
+
+    document.getElementById('importBtn').addEventListener('click', () => {
+      document.getElementById('importFile').click();
+    });
+
+    document.getElementById('importFile').addEventListener('change', event => {
+      const file = event.target.files[0];
+      if (!file) return;
+      const reader = new FileReader();
+      reader.onload = () => {
+        try {
+          applyState(JSON.parse(reader.result));
+        } catch (e) {
+          alert('Не удалось прочитать файл: ' + e.message);
+        }
+      };
+      reader.readAsText(file);
+      event.target.value = '';
+    });
+
+    document.getElementById('clearBtn').addEventListener('click', () => {
+      if (!confirm('Сбросить все настройки?')) return;
+      document.querySelectorAll('input[type="checkbox"]').forEach(cb => (cb.checked = false));
+      document.querySelectorAll('.custom-input').forEach(input => {
+        input.value = '';
+        input.style.display = 'none';
+      });
+      document.querySelectorAll('.field[data-locked="true"]').forEach(field => {
+        field.dataset.locked = 'false';
+        const lBtn = field.querySelector('.l-btn');
+        if (lBtn) lBtn.classList.remove('locked');
+      });
+      document.getElementById('charData').value = '';
+      document.getElementById('promptData').value = '';
+      buildPrompt();
+    });
+
+    document.getElementById('charData').addEventListener('input', buildPrompt);
+    document.getElementById('promptData').addEventListener('input', buildPrompt);
+
+    document.getElementById('copyBtn').addEventListener('click', async () => {
+      const output = document.getElementById('output');
+      await navigator.clipboard.writeText(output.value);
+      const btn = document.getElementById('copyBtn');
+      btn.textContent = 'Скопировано!';
+      setTimeout(() => (btn.textContent = 'Копировать'), 1500);
+    });
+
+    loadPositions();
+  </script>
+</body>
+</html>

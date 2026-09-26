@@ -1,0 +1,469 @@
+[
+  {
+    "id": "age",
+    "label": "Возраст",
+    "promt": "",
+    "options": {
+      "малыш 5-7 лет": "child aged 5–7",
+      "ребенок 10-12 лет": "10-12-year child",
+      "подросток 14 лет": "14-year teenager",
+      "16 лет": "16-year",
+      "18 лет": "18-year",
+      "молодой 20 лет": "20-year-old young",
+      "cредних лет 35 лет": "35-year-old middle-aged",
+      "45 лет зрелый": "45-year-old mature",
+      "50-60 лет старый": "elderly 50-60 aged"
+    },
+    "newSentence": false,
+    "newParagraph": false
+  },
+  {
+    "id": "gender",
+    "label": "Пол",
+    "promt": "",
+    "options": {
+      "мужчина": "male",
+      "женщина": "female"
+    },
+    "newSentence": false,
+    "newParagraph": false
+  },
+  {
+    "id": "height",
+    "label": "Рост",
+    "promt": "",
+    "options": {
+      "малыш 100-120 см": "100-120 cm short",
+      "низкий 130-150 см": "130-150 cm short",
+      "низкий 165 см": "165 cm short",
+      "средний 175 см": "175 cm medium",
+      "высокий 185 см": "185 cm tall",
+      "очень высокий 195-200 см": "195-200 cm very tall"
+    },
+    "newSentence": false,
+    "newParagraph": false
+  },
+  {
+    "id": "build",
+    "label": "Телосложение",
+    "promt": "build",
+    "options": {
+      "худощавое, сухое": "lean",
+      "худое": "thin",
+      "среднее": "medium build",
+      "атлетическое": "athletic",
+      "мускулистое": "muscular",
+      "коренастое": "stocky",
+      "грузное": "heavyset",
+      "толстое": "thick"
+    },
+    "newSentence": false,
+    "newParagraph": false
+  },
+  {
+    "id": "pose",
+    "label": "Поза",
+    "promt": "pose",
+    "options": {
+      "портрет": "portrait, head and shoulders",
+      "по пояс": "waist-up",
+      "в полный рост": "full body",
+      "стоя": "standing",
+      "сидя": "sitting",
+      "идущий": "walking",
+      "скрестив руки": "arms crossed",
+      "в боевой стойке": "in a battle stance",
+      "в действии": "in dynamic action",
+      "в полоборота": "three-quarter",
+      "обернувшись со спины": "turning around"
+    },
+    "newSentence": true,
+    "newParagraph": false
+  },
+  {
+    "id": "ethnicity",
+    "label": "Национальность",
+    "promt": "ethnicity",
+    "options": {
+      "европеец": "European",
+      "средний восток": "Middle Eastern",
+      "монголоид": "East Asian",
+      "африканец": "African",
+      "индеец": "Native American",
+      "эльф": "elf",
+      "гном": "dwarf",
+      "гоблин": "goblin",
+      "вампир": "vampire",
+      "демон": "demon",
+      "ангел": "angel",
+      "рептилоид": "reptilian",
+      "инопланетянин": "alien",
+      "андроид": "android"
+    },
+    "newSentence": true,
+    "newParagraph": false
+  },
+  {
+    "id": "facial-features",
+    "label": "Черты лица",
+    "promt": "facial features",
+    "options": {
+      "узкие скулы": "narrow cheekbones",
+      "широкие скулы": "broad cheekbones",
+      "резкие": "sharp",
+      "суровые": "stern",
+      "элегантные": "elegant",
+      "командные": "commanding",
+      "властные": "authoritative",
+      "высокомерные": "arrogant",
+      "закаленные в боях": "rugged battle-hardened",
+      "внушающие трепет": "intimidating",
+      "добрые": "kind",
+      "усталые": "weary",
+      "хитрые": "cunning",
+      "татуировки": "tattooed",
+      "шрамы": "scarred"
+    },
+    "newSentence": false,
+    "newParagraph": false
+  },
+  {
+    "id": "skin",
+    "label": "Кожа",
+    "promt": "skin",
+    "options": {
+      "бледная": "pale",
+      "светлая": "fair",
+      "смуглая": "olive",
+      "загорелая": "tanned",
+      "тёмная": "dark",
+      "бронзовая": "bronze",
+      "татуировки": "tattooed",
+      "шрамы": "scarred"
+    },
+    "newSentence": false,
+    "newParagraph": false
+  },
+  {
+    "id": "eye-shape",
+    "label": "Разрез глаз",
+    "promt": "eyes",
+    "options": {
+      "миндалевидные": "almond-shaped",
+      "узкие": "narrow",
+      "большие": "large",
+      "маленькие": "small",
+      "раскосые": "slanted",
+      "глубоко посаженные": "deep-set",
+      "широко расставленные": "wide-set",
+      "без складки века": "monolid"
+    },
+    "newSentence": true,
+    "newParagraph": false
+  },
+  {
+    "id": "eye-style",
+    "label": "Стиль глаз",
+    "promt": "",
+    "options": {
+      "ретро стиль, огромные": "90s retro anime style, massive eyes, vertical anime eyes",
+      "умеренный стиль": "modern shonen anime style, proportional realistic anime eyes",
+      "реалистичный стиль": "seinen anime style, small realistic eyes, gritty detailed eyes",
+      "уголки вверх, цуриме": "tsurime eyes, slanted anime eyes, upturned eye corners",
+      "уголки вниз, тарейме": "tareme eyes, droopy anime eyes, downturned eye corners"
+    },
+    "newSentence": false,
+    "newParagraph": false
+  },
+  {
+    "id": "eye-effects",
+    "label": "Эффекты глаз",
+    "promt": "",
+    "options": {
+      "большие и круглые": "huge cute anime eyes, sparkling eyes, energetic look",
+      "хитрые, лисьи": "narrow anime eyes, squinting eyes, sly fox-like look",
+      "острые, гордые": "sharp anime eyes, fierce look, confident expression",
+      "пустые, шок": "blank anime eyes, soulless eyes, no highlights, dead eyes",
+      "точки, комедийные": "chibi dot eyes, funny expression, simplified anime style",
+      "кошачьи, стрелки": "sharp cat-eye eyeliner, defined eye corners, almond anime eyes",
+      "санпаку, вертикальный зрачок": "sanpaku eyes, intimidating stare, visible white below iris",
+      "черный белок": "ghoul eyes, black sclera, glowing red irises",
+      "узоры": "mystical anime eyes, intricate iris pattern, glowing pupils"
+    },
+    "newSentence": false,
+    "newParagraph": false
+  },
+  {
+    "id": "eye-color",
+    "label": "Цвет глаз",
+    "promt": "eye color",
+    "options": {
+      "карие": "brown",
+      "светло-карие": "hazel",
+      "чёрные": "black",
+      "голубые": "blue",
+      "серые": "gray",
+      "зелёные": "green",
+      "гетерохромия": "heterochromia"
+    },
+    "newSentence": false,
+    "newParagraph": false
+  },
+  {
+    "id": "hair-color",
+    "label": "Цвет волос",
+    "promt": "hair color",
+    "options": {
+      "чёрные": "black",
+      "каштановые": "brown",
+      "светлые": "blond",
+      "рыжие": "red",
+      "седые": "gray"
+    },
+    "newSentence": true,
+    "newParagraph": false
+  },
+  {
+    "id": "hair",
+    "label": "Волосы",
+    "promt": "hair",
+    "options": {
+      "волнистые": "wavy",
+      "кудрявые": "curly",
+      "прямые": "straight",
+      "коротко стриженные": "short graying",
+      "лысый": "bald",
+      "длинные": "long",
+      "короткие": "short",
+      "строгий элегантный пучок": "styled in a strict elegant bun",
+      "заплетённые в косу": "braided",
+      "аристократическая прическа": "in a fashionable aristocratic hairstyle",
+      "собранные в пучок": "tied in a bun"
+    },
+    "newSentence": false,
+    "newParagraph": false
+  },
+  {
+    "id": "beard",
+    "label": "Борода",
+    "promt": "beard",
+    "options": {
+      "аккуратная": "neat",
+      "редкая щетина": "sparse stubble",
+      "коротко стриженная": "neatly trimmed",
+      "средней длины": "medium-length",
+      "длинная окладистая": "long full",
+      "клин": "pointed",
+      "эспаньолка": "goatee"
+    },
+    "newSentence": true,
+    "newParagraph": false
+  },
+  {
+    "id": "mustache",
+    "label": "Усы",
+    "promt": "mustache",
+    "options": {
+      "тонкие": "thin",
+      "пышные": "thick",
+      "подкрученные": "handlebar",
+      "щёткой": "brush",
+      "косматые": "shaggy"
+    },
+    "newSentence": false,
+    "newParagraph": false
+  },
+  {
+    "id": "brows",
+    "label": "Брови",
+    "promt": "brows",
+    "options": {
+      "тонкие": "thin",
+      "густые": "thick",
+      "косматые": "shaggy"
+    },
+    "newSentence": false,
+    "newParagraph": false
+  },
+  {
+    "id": "nose",
+    "label": "Нос",
+    "promt": "nose",
+    "options": {
+      "прямой": "straight",
+      "маленький вздернутый": "small, upturned",
+      "длинный": "long, slightly",
+      "острый": "sharp",
+      "орлиный": "aquiline",
+      "курносый": "snub",
+      "крупный": "large",
+      "узкий": "narrow",
+      "с горбинкой": "hooked"
+    },
+    "newSentence": false,
+    "newParagraph": false
+  },
+  {
+    "id": "clothes",
+    "label": "Одежда",
+    "promt": "wearing",
+    "options": {
+      "повседневная одежда": "casual clothes",
+      "бархатный камзол": "velvet doublet",
+      "торжественное облачение": "ceremonial garments",
+      "шёлковое кимоно": "silk kimono",
+      "мантия мага": "wizard robe",
+      "боевые доспехи": "battle armor",
+      "тёмный балахон": "dark hooded cloak",
+      "военная форма": "military uniform",
+      "перчатки": "gloves",
+      "сапоги": "boots",
+      "плащ": "cloak",
+      "шарф": "scarf",
+      "капюшон": "hood",
+      "куртка": "jacket",
+      "шляпа": "hat",
+      "шапка": "knit hat",
+      "меч": "sword",
+      "два меча": "two swords",
+      "пистолет": "pistol",
+      "ружье": "gun",
+      "посох": "staff",
+      "волшебная палочка": "magic wand"
+    },
+    "newSentence": true,
+    "newParagraph": false
+  },
+  {
+    "id": "style",
+    "label": "Стиль",
+    "promt": "",
+    "options": {
+      "манга": "black and white manga style, bold ink linework, screentone shading, monochrome",
+      "аниме": "anime style, cel shading, clean lineart, vibrant colors, hand-drawn cells, film grain, muted palette",
+      "комикс": "american comic book style, bold inks, halftone dots, dynamic colors",
+      "скетч": "pencil sketch, graphite shading, rough hatching, sketchbook paper",
+      "3D-рендер": "3D render, stylized Pixar-like character, soft global illumination, subsurface scattering",
+      "фотореализм": "photorealistic, hyperdetailed, DSLR photo, 85mm lens, natural skin texture, 8k, shallow depth of field, dramatic lighting",
+      "масляная живопись": "oil painting, thick impasto brush strokes, canvas texture, classical art",
+      "акварель": "watercolor painting, soft washes, paper texture, delicate ink outlines",
+      "киберпанк": "cyberpunk style, neon lighting, holographic glows, futuristic mood"
+    },
+    "newSentence": true,
+    "newParagraph": true
+  },
+  {
+    "id": "character-sheets",
+    "label": "Карты персонажа",
+    "promt": "",
+    "options": {
+      "карта персонажа": "character sheet, reference sheet, multiple views",
+      "карта эмоций": "character sheet, facial expressions"
+    },
+    "newSentence": true,
+    "newParagraph": true
+  },
+  {
+    "id": "reference-sheet",
+    "label": "Вид персонажа",
+    "promt": "",
+    "options": {
+      "спереди": "front view",
+      "в полоборота": "three-quarter",
+      "сбоку": "side view",
+      "сзади": "back view"
+    },
+    "newSentence": true,
+    "newParagraph": false
+  },
+  {
+    "id": "positive-sheets",
+    "label": "Позитивные выражения",
+    "promt": "",
+    "options": {
+      "Нейтральное / Спокойствие": "Neutral / Calm — The base facial expression, the starting point for all other emotions.",
+      "Легкая улыбка / Радость": "Joy / Smile — A friendly, relaxed state.",
+      "Простая улыбка с приоткрытым ртом": "Soft Open-Mouthed Smile / Innocent Grin — The eyes are relaxed, narrowed with warmth or drawn in soft arcs. The eyebrows are slightly raised, expressing openness and friendliness. The mouth is softly open in a neat triangle or crescent shape (showing the top row of teeth or just a clean outline), with a light, natural blush on the cheeks. This emotion radiates absolute sincerity and soft innocence.",
+      "Хитрая ухмылка / Торжество": "Smirk / Triumphant — One corner of the mouth is raised, eyes are narrowed, the character is up to something.",
+      "Искренний восторг / Счастье": "Ecstatic / Pure Happiness — A wide smile, possibly with a slightly open mouth and eyes squinted with pleasure.",
+      "Смех (Хохот) — Laughing / Giggling": "Laughing / Giggling — A wide-open mouth with teeth exposed and corners of the lips pulled sharply upward. The eyes are squinted or shut tight, forming crow's feet wrinkles around them. Eyebrows may be slightly raised from the burst of energy. The character's head is often tilted back or bent forward."
+    },
+    "newSentence": false,
+    "newParagraph": false
+  },
+  {
+    "id": "negative-sheets",
+    "label": "Негативные выражения",
+    "promt": "",
+    "options": {
+      "Раздражение": "Annoyed / Irritated — Slightly furrowed eyebrows, pressed lips.",
+      "Ярость / Гнев": "Rage / Angry — Strongly scowling eyebrows, a snarl or a scream, wide-open eyes.",
+      "Отвращение / Презрение": "Disgust / Contempt — A wrinkled nose, a raised upper lip, looking down on someone.",
+      "Надменность / Высокомерие": "Arrogance / Smugness — A looking down on viewer, half-closed arrogant eyes, tsurime eyes, arrogant expression, condescending look, haughty stare.",
+      "Обида / Надутость": "Pouting / Sulking — Downturned corners of the mouth, looking up from under the brow.",
+      "Злорадство": "Smug / Malicious Joy — An aggressive or sly, wicked smile."
+    },
+    "newSentence": false,
+    "newParagraph": false
+  },
+  {
+    "id": "anxious-sheets",
+    "label": "Тревожные и подавленные",
+    "promt": "",
+    "options": {
+      "Печаль / Грусть": "Sad / Sorrow — Downturned corners of the mouth, the inner corners of the eyebrows are raised upward.",
+      "Отчаяние": "Despair, wide open miserable eyes, dead eyes, empty stare, shocked expression, lost all hope, heartbreak, no tears, sad expression.",
+      "Плач": "Crying wide open eyes welled up with tears, tears streaming down cheeks, sad expression.",
+      "Рыдание": "Crying, eyes squeezed shut, streaming tears, sobbing, emotional breakdown.",
+      "Испуг": "Scared / Frightened — Tense/hunched shoulders, wide-open eyes, dilated pupils.",
+      "Ужас / Паника": "Terrified / Panic — An extreme degree of fear, the mouth is open in a silent scream, trembling."
+    },
+    "newSentence": false,
+    "newParagraph": false
+  },
+  {
+    "id": "reactive-sheets",
+    "label": "Сложные и реактивные",
+    "promt": "",
+    "options": {
+      "Любопытство / Заинтересованность": "Curious / Interested — Raised eyebrows, a slightly tilted head, a focused gaze.",
+      "Самоуверенность": "Confident / Defiant — A raised chin, half-closed eyes, a bold/audacious look at the viewer.",
+      "Недоверие": "Suspicious / Distrustful — One eye is slightly narrowed, eyebrows are uneven.",
+      "Усталость": "Tired / Exhausted — Drooping eyelids, dark circles under the eyes, a half-open relaxed mouth.",
+      "Скука": "Bored / Apathetic — The cheek is propped up by a hand, a blank stare into nowhere, a complete lack of facial tone.",
+      "Шок / Изумление": "Shocked / Surprised — High-raised eyebrows, a rounded mouth, wide circular eyes."
+    },
+    "newSentence": false,
+    "newParagraph": false
+  },
+  {
+    "id": "romantic-sheets",
+    "label": "Романтическая неловкость",
+    "promt": "",
+    "options": {
+      "Смущение / Стыд": "Embarrassed / Flushed — Looking away, blushing cheeks, an awkward smile.",
+      "Виноватое смущение": "Sheepish Apology / Guilty Blush — The eyebrows form an 'inverted V' (the inner corners are raised upward, showing submission), and the eyes are cast down at the floor. A light blush of shame is on the cheeks. The character smiles awkwardly with one side of their mouth, pulling their shoulders in, trying to look smaller and beg for forgiveness.",
+      "Врасплох": "Moe Surprise / Caught Off Guard — The eyes round and widen in shock, and the pupils are dilated. The face instantly flushes red. The palms fly up to the face (the character either covers their mouth or shields themselves with their hands), and the knees comedically turn inward. A total loss of control over the situation.",
+      "Нервирующая игривая улыбка": "Smug Tease / Playful Menace — A slight, wicked crescent-shaped smile where the corners of the lips are pulled sharply upward, but the mouth remains closed. The eyes are narrowed, and the gaze is fixed directly on the 'victim'. This emotion conveys absolute confidence and the knowledge of a secret, making everyone around break into a cold sweat.",
+      "Попытка скрыть стыд": "Tsundere Blush / Looking Away — His face is flushed, yet the young man pointedly turns his head away. His lips are pressed tight or pursed in a pout, and his brows are furrowed. He steals a sidelong glance back at the object of his adoration.",
+      "Неловкий смешок": "Nervous Sweatdrop — A crooked, strained smile, one eyebrow raised, and a huge bead of sweat standing out on his temple or the back of his head. His expression is pleading; the guy is trying to smooth over the awkward situation."
+    },
+    "newSentence": false,
+    "newParagraph": false
+  },
+  {
+    "id": "comedic-sheets",
+    "label": "Комедийные",
+    "promt": "",
+    "options": {
+      "Щенячий восторг": "Starburst Joy / Puppy Eyes — The eyebrows soar upward in admiration, and the mouth is stretched into a wide, happy smile. The pupils are completely replaced by bright four-pointed or multi-pointed stars. The face may be leaned slightly forward, expressing an extreme degree of adoration and anticipation.",
+      "Сон со слюнкой": "Sleeping Soundly / Drooling Sleep — The eyes are completely closed, drawn with simple soft arcs (or horizontal U_U lines). The face is totally relaxed, and the eyebrows are on a single level. The mouth is slightly open, and a comedic drop of drool is trickling from the corner. You can draw an anime snot bubble or 'Z-z-z' letters around the character.",
+      "Кровь из носа": "Nosebleed Shock — The eyes go perfectly round and pupil-less (the 'white screen' effect). The mouth hangs wide open in astonishment, while comical blood either drips or spurts in a fountain from the nose.",
+      "Перегрузка": "System Overload / Dumbfounded — He freezes up when complimented or hugged. His gaze goes blank (eyes become mere dots or white circles without pupils), his mouth hangs open in an 'O'-shape, and steam or spirals could be drawn around his head.",
+      "Кавайное окаменение": "Comedic Petrification — The guy freezes like a stone statue. His face is rendered in rough gray strokes (a stone effect), and his eyes are either squeezed shut or reduced to mere dots, expressing sheer panic at the female attention.",
+      "Душа покидает тело": "Soul Leaving Body / Ghosting — The facial expression is completely 'wiped away', and the eyes turn into two simple dashes. After an overly close encounter with the girl, the character's pale, ghostly soul literally flies out of his mouth in the form of an incorporeal little cloud."
+    },
+    "newSentence": false,
+    "newParagraph": false
+  }
+]
